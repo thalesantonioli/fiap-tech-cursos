@@ -11,8 +11,7 @@ public class Cupom implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "cupom", sequenceName = "sq_tb_cupom", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cupom")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "cupom")
 	@Column(name = "id_cupom")
 	private Long id;
 	

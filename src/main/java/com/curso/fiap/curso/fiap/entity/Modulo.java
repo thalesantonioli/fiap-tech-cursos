@@ -1,5 +1,7 @@
 package com.curso.fiap.curso.fiap.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -12,9 +14,9 @@ public class Modulo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "modulo", sequenceName = "sq_tb_modulo", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "modulo")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_modulo")
+	@JsonIgnore
 	private Long id;
 
 	@Column(name = "nm_modulo")
@@ -28,6 +30,7 @@ public class Modulo implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "id_curso")
+	@JsonIgnore
 	private Curso curso;
 
 	public Modulo() {

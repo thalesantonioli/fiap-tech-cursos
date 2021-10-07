@@ -13,8 +13,7 @@ public class Curso implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "curso", sequenceName = "sq_tb_curso", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "curso")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_curso")
 	private Long id;
 
@@ -39,6 +38,9 @@ public class Curso implements Serializable {
 
 	@Column(name = "url_imagem")
 	private String ulrImagem;
+
+	@OneToMany(mappedBy = "curso")
+	private List<Modulo> modulos;
 
 	public Curso(Long id, CursoNivel nivel, String nome, String descricao, Double precoOriginal, Double precoPromocional, String ulrImagem, Double porcDesconto) {
 		this.id = id;
@@ -117,5 +119,13 @@ public class Curso implements Serializable {
 
 	public void setPorcDesconto(Double porcDesconto) {
 		this.porcDesconto = porcDesconto;
+	}
+
+	public List<Modulo> getModulos() {
+		return modulos;
+	}
+
+	public void setModulos(List<Modulo> modulos) {
+		this.modulos = modulos;
 	}
 }

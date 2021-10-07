@@ -1,5 +1,7 @@
 package com.curso.fiap.curso.fiap.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -12,9 +14,9 @@ public class Conteudo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "conteudo", sequenceName = "sq_tb_conteudo", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "conteudo")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_conteudo")
+	@JsonIgnore
 	private Long id;
 
 	@Column(name = "ds_conteudo")
