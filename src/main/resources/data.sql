@@ -1,9 +1,14 @@
 INSERT INTO tb_curso VALUES
-(1, 'Aprenda a programar orientado a objetos com Java', '0', 'Orientação a Objetos com Java', '20', '150.00', '120.00', 'https://img-c.udemycdn.com/course/240x135/969548_48c9_5.jpg');
+(1, 'Aprenda a programar orientado a objetos com Java', '0', 'Orientação a Objetos com Java', '20', '150.00', '120.00', 'https://img-c.udemycdn.com/course/240x135/969548_48c9_5.jpg'),
+(2, 'Aprenda de uma vez por todas Algoritmos, Lógica de Programação, Constantes, Variáveis, Operadores e muito mais!', '0', 'Algoritmos e Lógica de Programação do básico ao avançado', '10', '140.00', '126.00', 'https://img-c.udemycdn.com/course/240x135/1693748_4c8f.jpg');
 
 INSERT INTO tb_modulo VALUES
 (1, '1h 18m', 'História do Java e Conceitos Iniciais de OO', 1),
-(2, '42m', 'Instalando o Java e o Eclipse', 1);
+(2, '42m', 'Instalando o Java e o Eclipse', 1),
+(3, '2h 37m', 'Pacotes, Herança, Associações e Polimorfismo', 1),
+(4, '28m', 'Constantes, Variáveis e Tipos de Dados', 2),
+(5, '18m', 'Estruturas de Decisão', 2),
+(6, '18m', 'Comandos de repetição', 2);
 
 INSERT INTO tb_conteudo VALUES
 (1, 'JRE vs JDK'),
@@ -14,7 +19,23 @@ INSERT INTO tb_conteudo VALUES
 (6, 'Eclipse'),
 (7, 'Instalando o Eclipse no Mac'),
 (8, 'Instalando o Eclipse no Linux'),
-(9, 'Conhecendo o Eclipse');
+(9, 'Conhecendo o Eclipse'),
+(10, 'Desenvolvendo Classes com o Eclipse'),
+(11, 'Pacotes'),
+(12, 'Arrays'),
+(13, 'Associações'),
+(14, 'Herança'),
+(15, 'Reescrita de Métodos'),
+(16, 'Polimorfismo'),
+(17, 'Pilares da OO'),
+(18, 'Constantes'),
+(19, 'Variáveis'),
+(20, 'Tipos de Dados'),
+(21, 'Declaração de Variáveis'),
+(22, 'Operações Lógicas'),
+(23, 'Estruturas de Decisão'),
+(24, 'Comandos de Decisão'),
+(25, 'Enquanto algo, Processar');
 
 INSERT INTO TB_MODULO_CONTEUDOS VALUES
 (2,1),
@@ -25,6 +46,20 @@ INSERT INTO TB_MODULO_CONTEUDOS VALUES
 (2,6),
 (2,7),
 (2,8),
-(2,9);
-
-
+(2,9),
+(3,10),
+(3,11),
+(3,12),
+(3,13),
+(3,14),
+(3,15),
+(3,16),
+(3,17),
+(4,18),
+(4,19),
+(4,20),
+(4,21),
+(5,22),
+(5,23),
+(5,24),
+(6,25);
