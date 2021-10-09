@@ -2,61 +2,69 @@ package com.curso.fiap.curso.fiap.service;
 
 import java.util.List;
 import java.util.Optional;
-
-import com.curso.fiap.curso.fiap.entity.Curso;
-import com.curso.fiap.curso.fiap.repository.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import com.curso.fiap.curso.fiap.model.dto.CursoResponseDTO;
+import com.curso.fiap.curso.fiap.model.dto.ListaCursosResponseDTO;
+import com.curso.fiap.curso.fiap.model.entity.Curso;
+import com.curso.fiap.curso.fiap.model.mapper.CursoMapper;
+import com.curso.fiap.curso.fiap.repository.CursoRepository;
 
 @Service
 public class CursoService {
 
-	@Autowired
-	private CursoRepository cursoRepository;
+  @Autowired
+  private CursoRepository cursoRepository;
 
-	public Curso create(Curso curso) {
-		return cursoRepository.save(curso);
-	}
+  @Autowired
+  private CursoMapper mapper;
 
-	public Curso update(Curso curso) {
-		if (!cursoRepository.existsById(curso.getId())) {
-			throw new RuntimeException("Curso não encontrado");
-		}
+  public Curso create(Curso curso) {
+    return cursoRepository.save(curso);
+  }
 
-		return cursoRepository.save(curso);
-	}
+  public Curso update(Curso curso) {
+    if (!cursoRepository.existsById(curso.getId())) {
+      throw new RuntimeException("Curso não encontrado");
+    }
 
-	public void delete(Long id) {
-		if (!cursoRepository.existsById(id)) {
-			throw new RuntimeException("Curso não encontrado");
-		}
+    return cursoRepository.save(curso);
+  }
 
-		cursoRepository.deleteById(id);
-	}
+  public void delete(Long id) {
+    if (!cursoRepository.existsById(id)) {
+      throw new RuntimeException("Curso não encontrado");
+    }
 
-	public Curso find(Long id) {
-		Optional<Curso> optional = cursoRepository.findById(id);
+    cursoRepository.deleteById(id);
+  }
 
-		if (!optional.isPresent()) {
-			throw new RuntimeException("Curso não encontrado");
-		}
+  public CursoResponseDTO find(Long id) {
+    Optional<Curso> optional = cursoRepository.findById(id);
 
-		return optional.get();
-	}
+    if (!optional.isPresent()) {
+      throw new RuntimeException("Curso não encontrado");
+    }
 
-	public Curso findByNome(String nome) {
-		Optional<Curso> optional = cursoRepository.findByNome(nome);
+    return mapper.cursoToCursoResponseDTO(optional.get());
+  }
 
-		if (!optional.isPresent()) {
-			throw new RuntimeException("Curso não encontrado");
-		}
+  public Curso findByNome(String nome) {
+    Optional<Curso> optional = cursoRepository.findByNome(nome);
 
-		return optional.get();
-	}
-	
-	public List<Curso> findAll(){
-		return cursoRepository.findAll();
-	}
+    if (!optional.isPresent()) {
+      throw new RuntimeException("Curso não encontrado");
+    }
+
+    return optional.get();
+  }
+
+  public ListaCursosResponseDTO findAll() {
+    List<CursoResponseDTO> cursosResponse =
+        mapper.cursoListToCursoResponseDTOList(cursoRepository.findAll());
+    ListaCursosResponseDTO response =
+        ListaCursosResponseDTO.builder().cursos(cursosResponse).build();
+
+    return response;
+  }
 }

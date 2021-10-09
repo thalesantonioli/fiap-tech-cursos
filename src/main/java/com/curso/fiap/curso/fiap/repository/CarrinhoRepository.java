@@ -1,13 +1,12 @@
 package com.curso.fiap.curso.fiap.repository;
 
-import com.curso.fiap.curso.fiap.entity.Carrinho;
-import com.curso.fiap.curso.fiap.entity.Usuario;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.curso.fiap.curso.fiap.model.entity.Carrinho;
+import com.curso.fiap.curso.fiap.model.entity.Usuario;
 
-public interface CarrinhoRepository extends JpaRepository<Carrinho, Long>{
+public interface CarrinhoRepository extends JpaRepository<Carrinho, Long> {
 
-    List<Carrinho> findByUsuario(Usuario usuario);
+  List<Carrinho> findByUsuario(Usuario usuario);
 
 }

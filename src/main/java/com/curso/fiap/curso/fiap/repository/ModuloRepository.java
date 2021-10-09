@@ -1,10 +1,9 @@
 package com.curso.fiap.curso.fiap.repository;
 
-import com.curso.fiap.curso.fiap.entity.Modulo;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.curso.fiap.curso.fiap.model.entity.Modulo;
 
 public interface ModuloRepository extends JpaRepository<Modulo, Long> {
-    List<Modulo> findAllByCursoId(Long id);
+  List<Modulo> findAllByCursoId(Long id);
 }
