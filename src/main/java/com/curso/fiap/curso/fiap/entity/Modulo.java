@@ -1,6 +1,8 @@
 package com.curso.fiap.curso.fiap.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,6 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_modulo")
+@JsonPropertyOrder({ "id", "nome", "cargaHoraria", "conteudos" })
 public class Modulo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -23,6 +26,7 @@ public class Modulo implements Serializable {
 	private String nome;
 
 	@Column(name = "carga_horaria")
+	@JsonProperty("carga_horaria")
 	private String cargaHoraria;
 
 	@OneToMany(cascade = CascadeType.PERSIST)

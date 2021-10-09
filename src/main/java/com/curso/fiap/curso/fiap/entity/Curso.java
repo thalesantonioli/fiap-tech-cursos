@@ -1,6 +1,8 @@
 package com.curso.fiap.curso.fiap.entity;
 
 import com.curso.fiap.curso.fiap.enums.CursoNivel;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_curso")
+@JsonPropertyOrder({"id", "nivel", "nome", "descricao", "precoOriginal", "precoPromocional", "porcDesconto", "ulrImagem", "modulos" })
 public class Curso implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -28,15 +31,19 @@ public class Curso implements Serializable {
 	private String descricao;
 
 	@Column(name = "preco_original")
+	@JsonProperty("preco_original")
 	private Double precoOriginal;
 
 	@Column(name = "preco_promocional")
+	@JsonProperty("preco_promocional")
 	private Double precoPromocional;
 
 	@Column(name = "porc_desconto")
+	@JsonProperty("porc_desconto")
 	private Double porcDesconto;
 
 	@Column(name = "url_imagem")
+	@JsonProperty("url_imagem")
 	private String ulrImagem;
 
 	@OneToMany(mappedBy = "curso")
