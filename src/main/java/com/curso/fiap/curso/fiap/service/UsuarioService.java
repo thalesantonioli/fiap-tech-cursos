@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.curso.fiap.curso.fiap.model.dto.UsuarioRequestDTO;
 import com.curso.fiap.curso.fiap.model.entity.Usuario;
+import com.curso.fiap.curso.fiap.model.mapper.UsuarioMapper;
 import com.curso.fiap.curso.fiap.repository.UsuarioRepository;
 
 @Service
@@ -13,7 +15,11 @@ public class UsuarioService {
   @Autowired
   private UsuarioRepository usuarioRepository;
 
-  public Usuario create(Usuario usuario) {
+  @Autowired
+  private UsuarioMapper mapper;
+
+  public Usuario create(UsuarioRequestDTO request) {
+    Usuario usuario = this.mapper.usuarioRequestDTOToUsuario(request);
     return usuarioRepository.save(usuario);
   }
 

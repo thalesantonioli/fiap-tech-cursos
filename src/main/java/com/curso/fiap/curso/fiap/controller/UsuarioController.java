@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.curso.fiap.curso.fiap.model.dto.UsuarioRequestDTO;
 import com.curso.fiap.curso.fiap.model.entity.Usuario;
 import com.curso.fiap.curso.fiap.service.UsuarioService;
 
@@ -16,7 +17,7 @@ public class UsuarioController {
   private UsuarioService usuarioService;
 
   @PostMapping
-  public Usuario create(@RequestBody Usuario usuario) {
+  public Usuario create(@RequestBody UsuarioRequestDTO usuario) {
     return usuarioService.create(usuario);
   }
 }
