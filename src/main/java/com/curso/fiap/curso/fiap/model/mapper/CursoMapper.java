@@ -9,10 +9,6 @@ import com.curso.fiap.curso.fiap.model.entity.Modulo;
 
 @Mapper(componentModel = "spring")
 public interface CursoMapper {
-
-  ModuloResponseDTO moduloToModuloResponseDTO(Modulo modulo);
-
   CursoResponseDTO cursoToCursoResponseDTO(Curso curso);
-
   List<CursoResponseDTO> cursoListToCursoResponseDTOList(List<Curso> curso);
 }

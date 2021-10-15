@@ -46,7 +46,4 @@ public class Usuario implements Serializable {
   @JoinTable(name = "tb_usuario_curso", joinColumns = @JoinColumn(name = "id_usuario"),
       inverseJoinColumns = @JoinColumn(name = "id_curso"))
   private List<Curso> cursos;
-
-  @OneToOne(mappedBy = "usuario")
-  private Carrinho carrinho;
 }

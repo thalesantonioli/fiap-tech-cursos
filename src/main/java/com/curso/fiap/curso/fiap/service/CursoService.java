@@ -59,12 +59,11 @@ public class CursoService {
     return optional.get();
   }
 
-  public ListaCursosResponseDTO findAll() {
+  public ListaCursosResponseDTO findAll(String criteria) {
     List<CursoResponseDTO> cursosResponse =
-        mapper.cursoListToCursoResponseDTOList(cursoRepository.findAll());
+        mapper.cursoListToCursoResponseDTOList(cursoRepository.findAllByNomeContainingOrDescricaoContaining(criteria, criteria));
     ListaCursosResponseDTO response =
         ListaCursosResponseDTO.builder().cursos(cursosResponse).build();
-
     return response;
   }
 }
