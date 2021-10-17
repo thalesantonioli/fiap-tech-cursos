@@ -16,25 +16,23 @@ import com.curso.fiap.curso.fiap.service.UsuarioService;
 
 @RestController
 @RequestMapping("usuarios")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
 
   @Autowired
   private UsuarioService usuarioService;
 
   @PostMapping
-  @CrossOrigin
   public Usuario create(@RequestBody UsuarioRequestDTO usuario) {
     return usuarioService.create(usuario);
   }
 
   @PutMapping("{id}")
-  @CrossOrigin
   public Usuario update(@RequestBody UsuarioRequestDTO usuario, @PathVariable("id") Long id) {
     return usuarioService.update(id, usuario);
   }
 
   @GetMapping
-  @CrossOrigin
   public Usuario getUserByEmail(
       @RequestParam(name = "email", defaultValue = "", required = false) String email) {
     return usuarioService.findByEmail(email);
