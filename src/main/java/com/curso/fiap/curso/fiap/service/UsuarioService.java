@@ -36,4 +36,15 @@ public class UsuarioService {
 
     return usuarioRepository.save(usuarioToUpdate);
   }
+
+  public Usuario findByEmail(String email) {
+
+    Optional<Usuario> usuarioOptional = this.usuarioRepository.findByEmail(email);
+
+    if (usuarioOptional.isEmpty()) {
+      throw new RuntimeException("Usuário não encontrado");
+    }
+
+    return usuarioOptional.get();
+  }
 }
