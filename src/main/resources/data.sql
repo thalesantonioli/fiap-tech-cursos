@@ -227,3 +227,6 @@ INSERT INTO TB_MODULO_CONTEUDOS VALUES
 (18,97),
 (18,98),
 (18,99);
+
+INSERT INTO tb_usuario VALUES
+(1, 'demo_user@email.com', 'Demo User', 'demo');
