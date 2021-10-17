@@ -12,13 +12,13 @@ import com.curso.fiap.curso.fiap.service.ModuloService;
 
 @RestController
 @RequestMapping("modulos")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ModuloController {
 
   @Autowired
   private ModuloService moduloService;
 
   @GetMapping("/cursos/{id}")
-  @CrossOrigin
   public List<Modulo> getModuloByCursoId(@PathVariable("id") Long id) {
     return moduloService.findAllByCursoId(id);
   }
