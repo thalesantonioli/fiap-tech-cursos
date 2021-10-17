@@ -41,7 +41,7 @@ public class UsuarioService {
 
     Optional<Usuario> usuarioOptional = this.usuarioRepository.findByEmail(email);
 
-    if (usuarioOptional.isEmpty()) {
+    if (!usuarioOptional.isPresent()) {
       throw new RuntimeException("Usuário não encontrado");
     }
 
